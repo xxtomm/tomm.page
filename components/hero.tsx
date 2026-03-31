@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import {
   IconAudio,
@@ -31,6 +31,7 @@ const heroIcons = [
 export function Hero() {
   const [isCopied, setIsCopied] = useState(false);
   const [iconIndex, setIconIndex] = useState(0);
+  const copyTimeoutRef = useRef<ReturnType<typeof setTimeout>>(null);
 
   useEffect(() => {
     setIconIndex(Math.floor(Math.random() * heroIcons.length));
@@ -38,11 +39,12 @@ export function Hero() {
 
   const RandomIcon = heroIcons[iconIndex];
 
-  const handleCopy = async () => {
+  const handleCopy = useCallback(async () => {
     await navigator.clipboard.writeText(siteConfig.email);
+    if (copyTimeoutRef.current) clearTimeout(copyTimeoutRef.current);
     setIsCopied(true);
-    setTimeout(() => setIsCopied(false), 2000);
-  };
+    copyTimeoutRef.current = setTimeout(() => setIsCopied(false), 2000);
+  }, []);
 
   return (
     <div className="gap-4 flex flex-col">
@@ -98,7 +100,7 @@ export function Hero() {
           I&apos;m a {getAge()} y/o{" "}
           <span className="text-primary">design engineer</span>{" "}
           who cares deeply about craft, detail, and the{" "}
-          <span className="font-bold font-caveat text-xl pr-1 bg-clip-text text-transparent bg-[linear-gradient(180deg,oklch(0.40_0.29_291),oklch(0.74_0.15_19))]">
+          <span className=" font-bold font-caveat text-xl pr-px leading-0 whitespace-nowrap bg-clip-text text-transparent bg-[linear-gradient(180deg,oklch(0.40_0.29_291),oklch(0.74_0.15_19))]">
             little things
           </span>{" "}
           that make a{" "}
