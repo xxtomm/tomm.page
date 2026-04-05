@@ -92,8 +92,8 @@ export function Hero() {
         </motion.div>
         <motion.div
           className="ml-auto"
-          initial={{ opacity: 0, filter: "blur(5px)" }}
-          animate={{ opacity: 1, filter: "blur(0px)" }}
+          initial={{ opacity: 0, filter: "blur(5px)", y: 8 }}
+          animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
           transition={{
             ease: "easeOut",
             duration: 0.8,
