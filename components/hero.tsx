@@ -98,7 +98,6 @@ export function Hero() {
             ease: "easeOut",
             duration: 0.8,
             bounce: 0,
-            delay: 0.8,
           }}
         >
         <Menu.Root>
