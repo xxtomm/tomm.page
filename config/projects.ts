@@ -14,6 +14,17 @@ export type Project = {
 export const projects: Project[] = [
   {
     type: "video",
+    title: "Navigation Menu",
+    date: "2026",
+    href: "https://x.com/tomm_ui/status/2058210377478082853",
+    src: `${siteConfig.cdn}/navbar.mp4`,
+    alt: "Navigation Menu",
+    ratio: 2600 / 1612,
+    placeholder:
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAUCAIAAABj86gYAAAACXBIWXMAAAAAAAAAAAHqZRakAAAAYUlEQVR4nGOYT2PAMGrBEAgiT09PBgby3UFYZ1FRkbKyMg0toBAQtuAcGEAYcBFkLkUWnDt3jgEMlJWVIQw0LkFriIpkT0/PoqIiOAmJEgiXUh9QDkYtIAhGg4ggGPpBBADS+Y3bbq99TwAAAABJRU5ErkJggg==",
+  },
+  {
+    type: "video",
     title: "Personal Site",
     date: "2026",
     href: "https://x.com/tomm_ui/status/2040799257494720642",
